@@ -10,14 +10,9 @@ const int coinSize = 11;
 int divisor[coinSize];
 
 void Greedy(int k) {
-	int quotient;
-
 	for (int i = n; i > 0; i--) { //역순으로 나누기
-		quotient = k / divisor[i];
-		if (quotient > 0) {
-			minCount += quotient;
-			k %= divisor[i];
-		}
+		minCount += k / divisor[i];
+		k %= divisor[i];
 	}
 }
 
