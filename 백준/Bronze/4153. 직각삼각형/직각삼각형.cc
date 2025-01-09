@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include <queue>
 using namespace std;
 queue<string> answer;
@@ -24,7 +23,7 @@ int main() {
 		b = line.top();
 		line.pop();
 		
-		if (pow(c, 2) == pow(a, 2) + pow(b, 2)) {
+		if (c*c == a*a + b*b) {
 			answer.push("right");
 		}
 		else {
