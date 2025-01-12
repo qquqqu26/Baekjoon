@@ -2,15 +2,15 @@
 #include <algorithm>
 using namespace std;
 
-const int maxSize = 100001;
-int n, m;
-int a[maxSize];
-bool answer[maxSize] = { 0 };
-
 int main() {
 
 	cin.tie(0);
 	ios::sync_with_stdio(0);
+	
+	const int maxSize = 100001;
+	int n, m;
+	int a[maxSize];
+	bool answer[maxSize] = { 0 };
 
 	//입력
 	cin >> n;
