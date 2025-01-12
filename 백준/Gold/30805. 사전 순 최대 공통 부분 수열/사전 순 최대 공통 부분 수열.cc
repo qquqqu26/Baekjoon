@@ -1,5 +1,5 @@
 //30805. 사전 순 최대 공통 부분 수열
-//Binary Search
+//Binary Search인 줄 알았지만 DP
 
 #include <iostream>
 #include <vector>
