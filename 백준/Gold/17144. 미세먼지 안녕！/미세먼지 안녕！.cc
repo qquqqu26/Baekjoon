@@ -11,21 +11,9 @@ int r, c, t = 0;
 
 int purifierR1, purifierR2; //청정기 y좌표
 
-void print(int m[maxSize][maxSize]) {
-	for (int i = 1; i <= r; i++) {
-		for (int j = 1; j <= c; j++) {
-			cout << m[i][j] << " ";
-		}
-		cout << "\n";
-	}
-}
-
 void backup() {
 	for (int y = 1; y <= r; y++)
 		memcpy(&backupMatrix[y], &matrix[y], sizeof(int)*(c+2) );
-
-	//cout << "백업" << endl;
-	//print(backupMatrix);
 }
 
 void spreadDust() {
@@ -81,20 +69,15 @@ int solution(int day) {
 	while (day != 0) {
 
 		spreadDust();
-		//print(matrix);
-		//cout << endl;
 		purifyAir();
-		//print(matrix);
 
 		day--;
 	}
-
+	
+	//먼지 계산
 	int answer = 0;
-
-
 	for (int y = 1; y <= r; y++) {
 		for (int x = 1; x <= c; x++) {
-			//cout << i << "번째, " << matrix[dust[i].first][dust[i].second] << "더한 값: " << answer << endl;
 			if (matrix[y][x] > 0)
 				answer += matrix[y][x];
 		}
