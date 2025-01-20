@@ -5,7 +5,7 @@ using namespace std;
 int n;
 int arr[100001];
 int id1, id2;
-long int minimum = 2000000000; //양수로 싹 맞춰 크기 비교 진행 1000000000
+int minimum = 2000000000; //양수로 싹 맞춰 크기 비교 진행 1000000000
 
 void saveIndex(int left, int right) {
 	id1 = left;
@@ -17,7 +17,7 @@ void solution() {
 	int right = n;
 
 	while (left != right) {
-		long int sum = arr[left] + arr[right];
+		int sum = arr[left] + arr[right];
 
 		if (sum == 0) {
 			saveIndex(left, right);
