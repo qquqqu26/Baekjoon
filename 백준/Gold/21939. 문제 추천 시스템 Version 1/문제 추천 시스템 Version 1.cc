@@ -1,20 +1,14 @@
 #include <iostream>
 #include <map>
 #include <set>
-#include <queue>
+#include <vector>
 using namespace std;
 
 map<int, set<int>> Lsearch; // 난이도, 문제번호
 map<int, int> Psearch; // 문제번호, 난이도
 vector<int> answer;
 
-void mapPrint(multimap<int, int> a) {
-	for (auto pair : a) {
-		cout << "\n난이도: " << pair.first << ", 문제: " << pair.second;
-	}
-}
-
-void recommend(int x) {
+void recommend(int& x) {
 	if (x == 1) {
 		auto &s = prev(Lsearch.end())->second;
 		answer.push_back(*prev(s.end()));
@@ -25,7 +19,7 @@ void recommend(int x) {
 	}
 }
 
-void solved(int problem) {
+void solved(int& problem) {
 
 	int level = Psearch.find(problem)->second; //난이도 추출
 	auto &s = Lsearch.find(level)->second; //해당 set 추출
@@ -35,9 +29,9 @@ void solved(int problem) {
 
 }
 
-void add(int p, int l) {
-	Lsearch[l].insert(p);
-	Psearch.emplace(p, l);
+void add(int& problem, int& level) {
+	Lsearch[level].insert(problem);
+	Psearch.emplace(problem, level);
 }
 
 int main() {
