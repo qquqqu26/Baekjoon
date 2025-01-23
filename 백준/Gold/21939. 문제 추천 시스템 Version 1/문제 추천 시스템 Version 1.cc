@@ -10,8 +10,8 @@ vector<int> answer;
 
 void recommend(int& x) {
 	if (x == 1) {
-		auto &s = prev(Lsearch.end())->second;
-		answer.push_back(*prev(s.end()));
+		auto &s = Lsearch.rbegin()->second;
+		answer.push_back(*s.rbegin());
 	}
 	else if (x == -1) {
 		auto &s = Lsearch.begin()->second;
@@ -21,8 +21,8 @@ void recommend(int& x) {
 
 void solved(int& problem) {
 
-	int level = Psearch.find(problem)->second; //난이도 추출
-	auto &s = Lsearch.find(level)->second; //해당 set 추출
+	int level = Psearch[problem]; //난이도 추출rbegin
+	auto &s = Lsearch[level]; //해당 set 추출
 	s.erase(problem); //문제 키 삭제
 	if (s.size() == 0) Lsearch.erase(level); //난이도 키 삭제
 	Psearch.erase(problem);
