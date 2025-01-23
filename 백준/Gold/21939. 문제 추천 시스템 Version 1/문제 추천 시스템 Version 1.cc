@@ -1,11 +1,12 @@
 #include <iostream>
 #include <map>
+#include <unordered_map>
 #include <set>
 #include <vector>
 using namespace std;
 
 map<int, set<int>> Lsearch; // 난이도, 문제번호
-map<int, int> Psearch; // 문제번호, 난이도
+unordered_map<int, int> Psearch; // 문제번호, 난이도
 vector<int> answer;
 
 void recommend(int& x) {
@@ -21,10 +22,12 @@ void recommend(int& x) {
 
 void solved(int& problem) {
 
-	int level = Psearch[problem]; //난이도 추출rbegin
+	int level = Psearch[problem]; //난이도 추출
 	auto &s = Lsearch[level]; //해당 set 추출
-	s.erase(problem); //문제 키 삭제
-	if (s.size() == 0) Lsearch.erase(level); //난이도 키 삭제
+	s.erase(problem);//문제 키 삭제
+	if (s.empty())
+		Lsearch.erase(level); //난이도 키 삭제
+
 	Psearch.erase(problem);
 
 }
