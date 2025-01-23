@@ -11,12 +11,12 @@ vector<int> answer;
 
 void recommend(int& x) {
 	if (x == 1) {
-		auto &s = Lsearch.rbegin()->second;
-		answer.push_back(*s.rbegin());
+		//auto &s = Lsearch.rbegin()->second;
+		answer.push_back(*(Lsearch.rbegin()->second).rbegin());
 	}
 	else if (x == -1) {
-		auto &s = Lsearch.begin()->second;
-		answer.push_back(*s.begin());
+		//auto &s = Lsearch.begin()->second;
+		answer.push_back(*(Lsearch.begin()->second).begin());
 	}
 }
 
