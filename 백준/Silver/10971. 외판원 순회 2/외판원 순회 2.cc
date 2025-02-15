@@ -12,7 +12,7 @@ int sum = 0;
 int visited[maxSize];
 int numOfSelected;
 int startCity;
-stack<int> sss;
+stack<int> sss; //디버깅용 확인용의 stack이기에 없어도 됨.
 
 void backtracking(int& lastCity) {
 	for (int nextCity = 1; nextCity <= n; nextCity++) {
@@ -64,6 +64,7 @@ int main() {
 		numOfSelected++;
 		backtracking(startCity);
 		visited[startCity] = false;
+		sss.pop();
 		numOfSelected--;
 	}
 
