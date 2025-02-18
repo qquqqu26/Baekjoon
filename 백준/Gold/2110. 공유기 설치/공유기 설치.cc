@@ -27,16 +27,13 @@ void binarySearch() {
 		
 
 		//공유기 시범 설치
-		while (true) {
+		while (router < c) {
 			it = lower_bound(house+first, house + n +1, house[first] + gap);
 			if (it == house + n + 1) 
 				break;
 
 			first = it - house;
 			router++;
-
-			if (router == c) 
-				break;
 		}
 
 		if (router == c) {
